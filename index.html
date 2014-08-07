@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Demo of using AMC file with backbone.js</title>
+		<meta charset="utf-8">
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-theme.css" rel="stylesheet">
+		<!--<link href="css/fuelux.css" rel="stylesheet">-->
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="content-wrapper clearfix">
+			<div class="movies-list-wrapper">
+				<table class="table table-bordered datagrid">
+					<thead>
+						<tr>
+							<th class="sortable" data-property="Number" style="width: 50px;">N°</th>
+							<th class="sortable" data-property="Title" style="width: 180px;">Title</th>
+							</tr>
+					</thead>
+				</table>
+				<div class="datagrid-stretch-wrapper">
+					<table class="table table-bordered datagrid" id="js-movies-list">
+					</table>
+				</div>
+			</div>
+			<div class="movie-details-wrapper">
+				<ul class="nav nav-tabs clearfix" id="js-movie-details-tabs">
+					<li class="active"><a href="#js-movie-details-tab-fields">Movie Fields</a></li>
+					<li><a href="#js-movie-details-tab-custom">Custom Fields</a></li>
+					<!--<li><a href="#js-movie-details-tab-all">All Fields</a></li>-->
+					<li><a href="#js-movie-details-tab-extras">Extras</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="js-movie-details-tab-fields">
+						
+						<div class="accordion" id="js-fields-accordion">
+							
+							<div class="accordion-group">
+								<div class="accordion-heading">
+									<a class="accordion-toggle" data-toggle="collapse" data-parent="js-fields-accordion" href="#collapseMedia">
+										Media
+									</a>
+								</div>
+								<div id="collapseMedia" class="accordion-body collapse in">
+									<div class="accordion-inner">
+									</div>
+								</div>
+							</div>
+							
+							<div class="accordion-group">
+								<div class="accordion-heading">
+									<a class="accordion-toggle" data-toggle="collapse" data-parent="js-fields-accordion" href="#collapseMovie">
+										Movie
+									</a>
+								</div>
+								<div id="collapseMovie" class="accordion-body collapse in">
+									<div class="accordion-inner">
+									</div>
+								</div>
+							</div>
+
+							<div class="accordion-group">
+								<div class="accordion-heading">
+									<a class="accordion-toggle" data-toggle="collapse" data-parent="js-fields-accordion" href="#collapseFile">
+										File
+									</a>
+								</div>
+								<div id="collapseFile" class="accordion-body collapse in">
+									<div class="accordion-inner">
+									</div>
+								</div>
+							</div>
+
+
+						</div>
+
+					</div>
+
+					<div class="tab-pane" id="js-movie-details-tab-custom">
+					</div>
+					<div class="tab-pane" id="js-movie-details-tab-all">
+
+					</div>
+		 			<div class="tab-pane" id="js-movie-details-tab-extras">
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div id="js-confirm-dialog" class="modal fade">
+		</div>
+		<script src="js/lib/react.js"></script>
+		<script src="js/lib/JSXTransformer.js"></script>
+		<script src="js/lib/jquery-2.1.1.js"></script>
+		<script src="js/lib/bootstrap.js"></script>
+		<script src="js/lib/underscore.js"></script>
+		<script src="js/lib/backbone.js"></script>
+		<script type="text/jsx" src="js/app.js"></script>
+	<body>
+</html>

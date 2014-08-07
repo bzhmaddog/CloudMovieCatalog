@@ -1,0 +1,67 @@
+
+.content-wrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+	border: 1px solid red;
+}
+
+.movies-list-wrapper {
+	width: 300px;
+	float: left;
+}
+
+.movie-details-wrapper {
+	width: 100%;
+	margin-left: 300px;
+	padding-left: 15px;
+
+	.nav-tabs {
+		float: left;
+		clear: after;
+	}
+
+	.tab-content {
+		clear: before;
+	}
+}
+
+.datagrid-stretch-wrapper {
+	overflow-y: auto;
+}
+
+.field-label {
+	display: block;
+	color: #555;
+
+	&.full-width input {
+		//width: 100%;
+	}
+
+	> span {
+		width: 130px;
+		display: inline-block;
+	}
+}
+
+.actors {
+	float: right;
+
+	> span {
+		display: block;
+	}
+}
+
+.col-1,
+.col-2 {
+	float: left;
+}
+
+.accordion-inner {
+	label {
+		margin-right: 15px;
+	}
+}
+
+.block-link {
+	display: block;
+}

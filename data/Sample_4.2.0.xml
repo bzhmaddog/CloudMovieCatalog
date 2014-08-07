@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<AntMovieCatalog Format="42" Version="4.2.0 (2014-04-20)" Date="28/07/2014 21:02:25">
+ <Catalog>
+  <Properties Owner="MADDOG" Mail="maddog_fr@hotmail.com" Site="http://www.brokenpipe.com" Description="blabla"/>
+  <CustomFieldsProperties ColumnSettings="BooleanCustomField:p42:w120:vt,DateCustomField:p42:w120:vt,IntegerCustomField:p42:w120:vt,ListCustomField:p42:w120:vt,RealCustomField:p42:w120:vt,StringCustomField:p42:w120:vt,TextCustomField:p42:w120:vt,URLCustomField:p42:w120:vt," GUIProperties="fw533:fh449">
+   <CustomField Tag="BooleanCustomField" Name="Boolean" Type="ftBoolean" GUIProperties="rx6:ry0:rw259:rh25:aw1:ah0:lw94"/>
+   <CustomField Tag="DateCustomField" Name="Date" Type="ftDate" GUIProperties="rx271:ry0:rw261:rh25:aw1:ah0:lw94"/>
+   <CustomField Tag="IntegerCustomField" Name="Integer" Type="ftInteger" GUIProperties="rx6:ry48:rw259:rh25:aw1:ah0:lw94"/>
+   <CustomField Tag="ListCustomField" Name="List" Type="ftList" GUIProperties="rx270:ry24:rw262:rh25:aw1:ah0:lw94" ListAutoAdd="True">
+    <ListValue Text="Amazing"/>
+    <ListValue Text="Very Good"/>
+    <ListValue Text="Good"/>
+    <ListValue Text="Bad"/>
+    <ListValue Text="Very Bad"/>
+   </CustomField>
+   <CustomField Tag="RealCustomField" Name="Currency" Ext="$" Type="ftReal2" GUIProperties="rx270:ry48:rw262:rh25:aw1:ah0:lw94"/>
+   <CustomField Tag="StringCustomField" Name="String" Type="ftString" GUIProperties="rx6:ry24:rw259:rh25:aw1:ah0:lw94"/>
+   <CustomField Tag="TextCustomField" Name="Text" Type="ftText" GUIProperties="rx6:ry96:rw526:rh174:aw1:ah0:lw94"/>
+   <CustomField Tag="URLCustomField" Name="URL" Type="ftUrl" GUIProperties="rx6:ry72:rw526:rh25:aw1:ah0:lw94"/>
+  </CustomFieldsProperties>
+  <Contents>
+   <Movie Number="1" Checked="True" ColorTag="5" Date="2002-05-25" DateWatched="2014-04-13" UserRating="9.5" Rating="8.0" OriginalTitle="The Matrix" FormattedTitle="The Matrix" Director="Andy Wachowski, Larry Wachowski" Actors="Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving, Gloria Foster, Joe Pantoliano, Marcus Chong, Julian Arahanga, Matt Doran, Belinda McClory, Anthony Ray Parker, Paul Goddard (I), Robert Taylor (VII), David Aston, Marc Gray" Country="United States" Year="1999" Length="136" Category="Action" URL="http://us.imdb.com/Title?0133093" Description="In the near future, a computer hacker named Neo (Keanu Reeves) discovers that all life on Earth may be nothing more than an elaborate facade created by a malevolent cyber-intelligence, for the purpose of placating us while our life essence is &#34;farmed&#34; to fuel the Matrix&#39;s campaign of domination in the &#34;real&#34; world. He joins like-minded Rebel warriors Morpheus (Laurence Fishburne) and Trinity (Carrie Ann Moss) in their struggle to overthrow the Matrix. " Languages="English" Picture="Sample_4.2.0.xml_pics\Sample_4.2.0_1.jpg">
+    <CustomFields BooleanCustomField="True" DateCustomField="2014-04-08" IntegerCustomField="10" ListCustomField="Amazing" RealCustomField="0.00" StringCustomField="AMC 4.2.0" TextCustomField="I can manage here all my custom fields for all movies in my catalog as I want !|And now, I can also add and manage extras for each movie in my catalog as I want !|Thank AMC !||-------------------------------------------------------------------------------------------------||Je peux gérer ici tous mes champs personnalisés pour tous les films de mon catalogue comme je veux !|Et maintenant, je peux aussi ajouter et gérer des extras pour chaque film de mon catalogue comme je le souhaite !|Merci AMC !" URLCustomField="http://www.antp.be"/>
+    <Extras>
+     <Extra EChecked="True" ETitle="Keanu Reeves" ECategory="Actors" EURL="nm0000206" EDescription="Neo" EComments="www.imdb.com/title/tt0133093/" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Laurence Fishburne" ECategory="Actors" EURL="nm0000401" EDescription="Morpheus" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Carrie-Anne Moss" ECategory="Actors" EURL="nm0005251" EDescription="Trinity" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Hugo Weaving" ECategory="Actors" EURL="nm0915989" EDescription="Agent Smith" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Gloria Foster" ECategory="Actors" EURL="nm0287825" EDescription="Oracle" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Still 1" ECategory="Stills"/>
+     <Extra EChecked="True" ETitle="Still 2" ECategory="Stills"/>
+     <Extra EChecked="True" ETitle="Still 3" ECategory="Stills"/>
+     <Extra EChecked="True" ETitle="Still 4" ECategory="Stills"/>
+     <Extra EChecked="True" ETag="Studio" ETitle="WB" ECategory="Others"/>
+     <Extra EChecked="True" ETitle="Wallpaper 1" ECategory="Backgrounds"/>
+    </Extras>
+   </Movie>
+   <Movie Number="2" Checked="True" ColorTag="1" Date="2002-05-25" Rating="6.0" OriginalTitle="Lethal Weapon 4" FormattedTitle="Lethal Weapon 4" Director="Richard Donner" Actors="Mel Gibson, Danny Glover, Joe Pesci, Rene Russo, Chris Rock, Jet Li, Steve Kahan, Kim Chan, Darlene Love, Traci Wolfe, Eddy Ko, Jack Kehler, Calvin Jung, Damon Hines, Ebonie Smith" Country="United States" Year="1998" Length="127" Category="Crime" URL="http://us.imdb.com/Title?0122151" Description="Martin Riggs and Roger Murtaugh, after escaping death from the previous movies are put on a hit list by The Triads. When blood thirsty mercenaries are on their tail they team up again with Leo Getz and Lorna Cole, a newcomer (Chris Rock) to finally put an end to the Triads for good. " Languages="English" Picture="Sample_4.2.0.xml_pics\Sample_4.2.0_2.jpg">
+    <Extras>
+     <Extra EChecked="True" ETitle="Mel Gibson" ECategory="Actors" EURL="nm0000154" EDescription="Martin Riggs" EComments="www.imdb.com/title/tt0122151/" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Danny Glover" ECategory="Actors" EURL="nm0000418" EDescription="Roger Murtaugh" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Joe Pesci" ECategory="Actors" EURL="nm0000582" EDescription="Leo Getz" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Rene Russo" ECategory="Actors" EURL="nm0000623" EDescription="Lorna Cole" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Chris Rock" ECategory="Actors" EURL="nm0001674" EDescription="Detective Lee Butters" ECreatedBy="IMDB (Actor images)"/>
+    </Extras>
+   </Movie>
+   <Movie Number="3" Checked="True" ColorTag="11" Date="2002-05-25" Rating="8.0" OriginalTitle="Indiana Jones and the Last Crusade" FormattedTitle="Indiana Jones and the Last Crusade" Director="Steven Spielberg" Actors="Harrison Ford, Sean Connery, Denholm Elliott, Alison Doody, John Rhys-Davies, Julian Glover, River Phoenix, Michael Byrne (I), Kevork Malikyan, Robert Eddison, Richard Young (I), Alexei Sayle, Alex Hyde-White, Paul Maxwell (I), Isla Blair" Country="United States" Year="1989" Length="127" Category="Fantasy" URL="http://us.imdb.com/Title?0097576" Description="Renowned archeologist and expert in the occult, Dr. Indiana Jones, returns for the 3rd and final Indy film.   Teaming up with his father, Indiana sets out to try and find the Holy Grail.   Once again, the Nazis are after the same prize, and try to foil Indianas plans. " Languages="English" Picture="Sample_4.2.0.xml_pics\Sample_4.2.0_3.jpg">
+    <Extras>
+     <Extra EChecked="True" ETitle="Harrison Ford" ECategory="Actors" EURL="nm0000148" EDescription="Indiana Jones" EComments="www.imdb.com/title/tt0097576/" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Sean Connery" ECategory="Actors" EURL="nm0000125" EDescription="Professor Henry Jones" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Denholm Elliott" ECategory="Actors" EURL="nm0001186" EDescription="Marcus Brody" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Alison Doody" ECategory="Actors" EURL="nm0233145" EDescription="Elsa" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="John Rhys-Davies" ECategory="Actors" EURL="nm0722636" EDescription="Sallah" ECreatedBy="IMDB (Actor images)"/>
+    </Extras>
+   </Movie>
+   <Movie Number="4" Checked="True" ColorTag="2" MediaType="CD-ROM" Source="Friend" Date="2002-05-25" Rating="9.0" OriginalTitle="Memento" FormattedTitle="Memento" Director="Christopher Nolan" Actors="Guy Pearce, Carrie-Anne Moss, Joe Pantoliano, Mark Boone Junior, Russ Fega, Jorja Fox, Stephen Tobolowsky, Harriet Sansom Harris, Thomas Lennon (III), Callum Keith Rennie, Kimberly Campbell (I), Marianne Muellerleile, Larry Holden (I)" Country="United States" Year="2000" Length="113" Category="Drama" URL="http://us.imdb.com/Title?0209144" Description="Leonard (Guy Pearce) is an insurance investigator, who&#39;s memory has been damaged following a head injury he sustained after intervening on his wife&#39;s murder. His quality of life has been severely hampered after this event, and he can now only live a comprehendable life by tattooing notes on himself, and taking pictures of things with a Polaroid camera. The movie is told in forward flashes of events that are to come that compensate for his unreliable memory, during which he has liaisons with various complex characters. Leonard badly wants revenge for his wife&#39;s murder, but, as numourous characters explain, there may be little point if he won&#39;t remember it in order to provide a satisfying feel to him. The movie veers between these future occurrences, and a telephone conversation Leonard is having in his motel room, in which he compares his current state to that of a client whose claim he once dealt with. " VideoFormat="DivX 4" VideoBitrate="776" AudioFormat="MPEG Layer 3 (MP3)" AudioBitrate="96" Resolution="720x320" Framerate="25" Languages="English" Size="622" Disks="1" Picture="Sample_4.2.0.xml_pics\Sample_4.2.0_4.jpg">
+    <Extras>
+     <Extra EChecked="True" ETitle="Guy Pearce" ECategory="Actors" EURL="nm0001602" EDescription="Leonard" EComments="www.imdb.com/title/tt0209144/" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Carrie-Anne Moss" ECategory="Actors" EURL="nm0005251" EDescription="Natalie" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Joe Pantoliano" ECategory="Actors" EURL="nm0001592" EDescription="Teddy" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Mark Boone Junior" ECategory="Actors" EURL="nm0095478" EDescription="Burt" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Russ Fega" ECategory="Actors" EURL="nm0270383" EDescription="Waiter" ECreatedBy="IMDB (Actor images)"/>
+    </Extras>
+   </Movie>
+   <Movie Number="5" Checked="True" ColorTag="12" Date="2001-10-02" Rating="8.0" OriginalTitle="Jurassic Park" FormattedTitle="Jurassic Park" Director="Steven Spielberg" Actors="Sam Neill, Laura Dern, Jeff Goldblum, Richard Attenborough, Bob Peck" Country="United States" Year="1993" Length="127" Category="Aventure" Description="Scientists develop a means of bringing dinosaurs to life using DNA taken from dino&#39; blood, which has been preserved inside insects encased in amber. Whilst Hammond is showing off his dinosaur &#39;theme park&#39; to a selected audience [a lawyer (Gerrano), mathematician (Malcolm), dino&#39; expert (Grant), palaeobotanist (Sattler) and his grandchildren (Tim &#38; Lex)], Nedry (computer expert) disables the security system so that he can make his escape with some stolen embryos. This enables all the dinosaurs to escape their enclosures... Look out the dinosaurs are coming !" VideoFormat="DivX 4" Resolution="600x344" Languages="English" Size="694" Disks="1" Picture="Sample_4.2.0.xml_pics\Sample_4.2.0_5.jpg">
+    <Extras>
+     <Extra EChecked="True" ETitle="Sam Neill" ECategory="Actors" EURL="nm0000554" EDescription="Dr. Alan Grant" EComments="www.imdb.com/title/tt0107290/" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Laura Dern" ECategory="Actors" EURL="nm0000368" EDescription="Dr. Ellie Sattler" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Jeff Goldblum" ECategory="Actors" EURL="nm0000156" EDescription="Dr. Ian Malcolm" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Richard Attenborough" ECategory="Actors" EURL="nm0000277" EDescription="John Hammond" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Bob Peck" ECategory="Actors" EURL="nm0669629" EDescription="Robert Muldoon" ECreatedBy="IMDB (Actor images)"/>
+    </Extras>
+   </Movie>
+   <Movie Number="6" Checked="True" ColorTag="3" Date="2001-10-19" Rating="8.0" OriginalTitle="Evolution" FormattedTitle="Evolution" Director="Ivan Reitman" Actors="David Duchovny, Julianne Moore, Orlando Jones, Seann William Scott, Ted Levine" Country="United States" Year="2001" Length="102" Category="Science-Fiction" Description="Glen Canyon, Arizona, the present day. Wayne, practising at night in the desert for his upcoming fireman&#39;s exam, witnesses the impact of a meteorite. The next day, biology teacher Dr. Ira Kane and geology teacher Harry Block from Glen Canyon Community College manage to get to the meteorite, which is stuck in the ground at the bottom of a cave. By taking a sample, they discover a slimy blue fluid coming out of the meteorite. A little later, Ira Kane finds out that myriads of single-celled life-forms dwell in the fluid, evolve at an incredible rate, even while he&#39;s watching. What first seems like a sure ticket to Sweden for the Nobel Prize soon develops into a nightmare: By evolving and adapting at that unbelievably fast rate, the Aliens start spreading out, and the Military comes in. Now it all comes down to what Darwin so rightfully stated: Survival of the fittest. And no good idea in sight..." VideoFormat="DivX 3" VideoBitrate="984" AudioFormat="MPEG Layer 3 (MP3)" AudioBitrate="128" Resolution="576x304" Framerate="23,976" Languages="English" Size="692" Disks="1" Picture="Sample_4.2.0.xml_pics\Sample_4.2.0_6.png">
+    <Extras>
+     <Extra EChecked="True" ETitle="David Duchovny" ECategory="Actors" EURL="nm0000141" EDescription="Ira" EComments="www.imdb.com/title/tt0251075/" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Julianne Moore" ECategory="Actors" EURL="nm0000194" EDescription="Allison" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Orlando Jones" ECategory="Actors" EURL="nm0428963" EDescription="Harry" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Seann William Scott" ECategory="Actors" EURL="nm0005405" EDescription="Wayne" ECreatedBy="IMDB (Actor images)"/>
+     <Extra EChecked="True" ETitle="Ted Levine" ECategory="Actors" EURL="nm0505971" EDescription="Gen. Woodman" ECreatedBy="IMDB (Actor images)"/>
+    </Extras>
+   </Movie>
+   <Movie Number="7" Checked="True" ColorTag="7" Date="2001-11-15" Rating="8.0" OriginalTitle="Taxi" FormattedTitle="Taxi" Director="Gerard Pires" Actors="Samy Naceri, Frederic Dienfenthal, Marion Cotillard, Emma Wiklund, Bernard Farcy" Country="France" Year="1997" Length="90" Category="Detective" Description="Daniel est un fou du volant. Cet ex-livreur de pizzas est aujourd&#39;hui chauffeur de taxi et sait échapper aux radars les plus perfectionnés. Pourtant, un jour, il croise la route d&#39;Emilien, policier recalé pour la huitieme fois à son permis de conduire. Pour conserver son taxi, il accepte le marché que lui propose Emilien : l&#39;aider à démanteler un gang de braqueurs de banques qui écume les succursales de la ville à bord de puissants vehicules. Road-movie urbain sur un scénario de Luc Besson, également producteur." VideoFormat="MPEG1" Resolution="352x288" Languages="French" Size="645+215" Disks="2" Picture="Sample_4.2.0.xml_pics\Sample_4.2.0_7.jpg">
+    <Extras>
+     <Extra EChecked="True" ETitle="Samy Naceri" ECategory="Actors" EURL="http://fr.web.img4.acsta.net/pictures/210/207/21020757_20130718113305547.jpg" EDescription="Daniel Morales" ECreatedBy="Allociné"/>
+     <Extra EChecked="True" ETitle="Frédéric Diefenthal" ECategory="Actors" EURL="http://fr.web.img6.acsta.net/medias/nmedia/18/35/22/67/20357075.jpg" EDescription="Emilen" ECreatedBy="Allociné"/>
+     <Extra EChecked="True" ETitle="Marion Cotillard" ECategory="Actors" EURL="http://fr.web.img5.acsta.net/medias/nmedia/18/35/20/97/20184600.jpg" EDescription="Lily" ECreatedBy="Allociné"/>
+     <Extra EChecked="True" ETitle="Emma Wiklund" ECategory="Actors" EURL="http://fr.web.img3.acsta.net/medias/nmedia/18/77/43/35/19844086.jpg" EDescription="Petra" ECreatedBy="Allociné"/>
+     <Extra EChecked="True" ETitle="Bernard Farcy" ECategory="Actors" EURL="http://fr.web.img2.acsta.net/medias/nmedia/18/63/84/76/18720031.jpg" EDescription="Le commissaire Gibert" ECreatedBy="Allociné"/>
+    </Extras>
+   </Movie>
+   <Movie Number="8" Checked="True" ColorTag="0" MediaLabel="Label" MediaType="CD-ROM" Source="Source" Date="2014-07-26" Borrower="zobi" DateWatched="2014-07-26" UserRating="10.0" Rating="0.0" Director="Moi" Producer="Lui" Writer="Elle" Composer="Johnny Halliday" Actors="Chuck Norris" Country="France" Year="2014" Length="224" Category="SciFi" Certification="Bouze" URL="http://www.break.com" Description="Blabla" Comments="Some blabla" FilePath="D:\Shared\12.Years.A.Slave.2013.VOSTFR.BRRip.XVid-JABAL\12 Years A Slave 2013 VOSTFR BRRip XVid-JABAL.avi" VideoFormat="xvid" VideoBitrate="1333" AudioFormat="MPEG-1 Audio layer 3" AudioBitrate="128" Resolution="720x304" Framerate="23,976" Languages="English" Subtitles="French" Size="1417" Disks="1"/>
+  </Contents>
+ </Catalog>
+</AntMovieCatalog>

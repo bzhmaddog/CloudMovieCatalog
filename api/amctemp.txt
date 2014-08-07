@@ -1,0 +1,77 @@
+// Open binary file
+fs.open("../data/Sample_4.2.0_nomovies.amc", 'r', function(status, fd) {
+    if (status) {
+        console.log(status.message);
+        return;
+    }
+	
+	// Read header string 65 chars
+    var header = new Buffer(65);
+    fs.readSync(fd, header, 0, 65, 0);
+	catalog.version = headers[header.toString('utf-8', 0, 65)];
+	
+	if (catalog.version === undefined) {
+		console.log('Incorrect/Unknown AMC catalog version');
+		return;
+	}
+	
+	// Read size of the owner string
+	var stringSize = new Buffer(1);
+    fs.readSync(fd, stringSize, 0, 1);
+	var ownerSize = parseInt(stringSize.toString().charCodeAt(0));
+	
+	// Separator bytes (3 bytes)
+	fs.readSync(fd, new Buffer(3), 0, 3);
+	
+	// Read catalog owner Name
+	var ownerName = new Buffer(ownerSize);
+	fs.readSync(fd, ownerName, 0, ownerSize);
+	catalog.owner.name = ownerName.toString('utf-8', 0, ownerSize);
+	
+	// Read owner email size
+	fs.readSync(fd, stringSize, 0, 1);
+	var emailSize = parseInt(stringSize.toString().charCodeAt(0));
+	
+	// Separator bytes (3 bytes)
+	fs.readSync(fd, new Buffer(3), 0, 3);
+
+	// Read catalog owner Email
+	var ownerEmail = new Buffer(emailSize);
+	fs.readSync(fd, ownerEmail, 0, emailSize);
+	catalog.owner.email = ownerEmail.toString('utf-8', 0, emailSize);
+
+	// Read Size of  owner website Url
+	fs.readSync(fd, stringSize, 0, 1);
+	var urlSize = parseInt(stringSize.toString().charCodeAt(0));
+	
+	// Separator bytes (3 bytes)
+	fs.readSync(fd, new Buffer(3), 0, 3);
+
+	// Read owner website Url
+	var ownerUrl = new Buffer(urlSize);
+	fs.readSync(fd, ownerUrl, 0, urlSize);
+	catalog.owner.url = ownerUrl.toString('utf-8', 0, urlSize);
+
+	// Read size of catalog owner description
+	fs.readSync(fd, stringSize, 0, 1);
+	var descSize = parseInt(stringSize.toString().charCodeAt(0));
+	
+	// Separator bytes (3 bytes)
+	fs.readSync(fd, new Buffer(3), 0, 3);
+
+	// Read catalog owner description
+	var ownerDesc = new Buffer(descSize);
+	fs.readSync(fd, ownerDesc, 0, descSize);
+	catalog.owner.description = ownerDesc.toString('utf-8', 0, descSize);
+
+	// custom fields
+	if (catalog.version > 3.5) {
+	
+	}
+	
+	
+	
+	console.log(catalog);
+
+	server.start();
+});
