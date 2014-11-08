@@ -1,214 +1,13 @@
 /** @jsx React.DOM */
 
-(function($){
-	'use strict';
+define(['jquery','react', 'js/views/dialogs.js', 'js/utils.js'], function ($, React, Dialogs, Utils) {
 
-	var $saveConfirmDialog = $('#saveConfirmDialog'),
-		movieFields,
-		DialogButton,
-		ConfirmDialog,
-		MovieListItem,
-		MovieList,
-		MediaFields,
-		MovieFields,
-		FileFields,
-		apiUrl = 'http://api.amcviewer.com/',
-		Movie,
-		MovieLite,
-		MoviesListCollection,
-		moviesList,
-		loadedMovie,
-		hasChanged = false;
-
-	/**
-	 * Handle closing of Dialog boxes
-	 * @param ev {event} DOM event
-	 */
-	/*function _handleModalClose(ev) {
-		
-		if (ev.target === $saveConfirmDialog.get(0)) {
-			console.log(ev);
-		}
-
-	}*/
-
-	/**
-	 * Handle changes in the form fields, if input name is defined then update the model property
-	 * @param ev {event} DOM event
-	 */
-	function _handleFieldChange(ev) {
-		if (typeof ev.target.name === 'undefined') {
-			console.log('You binded an onChange without giving a name to your input !!');
-			return;
-		}
-
-		this.props.model.set(ev.target.name, ev.target.value);
-		hasChanged = true;
-	}
-
-	/**
-	 * Load a movie into the object
-	 * @param id {integer} the movie id/number
-	 */		
-	function _loadMovie(id) {
-		// Load movie in the Model
-		loadedMovie.fetch({
-			url : api('movie/' + id),
-			success : function () {
-				hasChanged = false;
-			}
-		});
-	}
-
-	/**
-	 * Return api url for path
-	 * @param path {string} path requested
-	 * @return {string} api url
-	 */
-	function api(path) {
-		return apiUrl + path;
-	}
-
-	// Default values for the movie fields
-	movieFields = {
-		Number : 0,
-		OriginalTitle : '',
-		TranslatedTile : '',
-		FormattedTitle: '',
-		Director : '',
-		Producer : '',
-		Writer : '',
-		Composer : '',
-		Actors : '',
-		Country : '',
-		Category : '',
-		URL : '',
-		Description : '',
-		Comments : '',
-		Checked : '',
-		ColorTag : '',
-		MediaLabel : '',
-		MediaType : '',
-		Source : '',
-		'Date' : '',
-		DateWatched : '',
-		Borrower : '',
-		UserRating : '',
-		Rating : '',
-		Year : '',
-		Length : '',
-		Certification : '',
-		FilePath : '',
-		VideoFormat : '',
-		VideoBitrate : '',
-		AudioFormat : '',
-		AudioBitrate : '',
-		Resolution : '',
-		Framerate : '',
-		Languages : '',
-		Subtitles : '',
-		Size : '',
-		Disks : '',
-		CustomFields : {},
-		Extras : {}
-	};
-
-	/**
-	 * Backbone Movie Model
-	 */
-	Movie = Backbone.Model.extend({
-		// Parse the response to initialize missing fields (xml file does not contains attributes if they are empty)
-		parse : function (response, options) {
-			return $.extend({}, movieFields, response);
-		},
-		url : api('movie'), // url to post data
-		defaults: movieFields
-	});
-
-	/**
-	 * Backbone MovieLite Model
-	 */
-	MovieLite = Backbone.Model.extend({
-		defaults: {
-			Number : 0,
-			FormattedTitle : ''
-		}
-	});
-	
-	/**
-	 * Backbone collection : Array of MovieLite
-	 */
-	MoviesListCollection = Backbone.Collection.extend({
-		model : MovieLite,
-		url : api('list')
-	});
-
-	/**
-	 * React : Dialog button component
-	 */
-	DialogButton = React.createClass({
-		render : function () {
-			var btnClass = "btn btn-" + this.props.model.btnClass;
-
-			return <button onClick={this.props.model.handleClick} type="button" className={btnClass} data-dismiss="modal" data-action={this.props.model.action}>{this.props.model.text}</button>
-		}
-	});
-
-	/**
-	 * React : Dialog component using Bootstrap modal
-	 */
-	ConfirmDialog = React.createClass({
-		componentDidUpdate : function () {
-			//$("#js-confirm-dialog").modal('show'); // show the modal automatically when the component update
-		},
-		// handle click events on the buttons
-		handleClick : function (ev) {
-			var action = $(ev.target).data('action'),
-				buttons = this.props.model.buttons,
-				l = buttons.length;
-
-			for (var i = 0 ; i < l ; i++) {
-				if (buttons[i].action === action && typeof buttons[i].callback === 'function') {
-					buttons[i].callback.call(this, ev);
-					break;
-				}
-			}
-		},
-		render : function () {
-			var _handleClick = this.handleClick,
-				buttons;
-
-			buttons = this.props.model.buttons.map(function (button) {
-				var btnModel = button;
-				btnModel.handleClick = _handleClick;
-				//delete btnModel.callback;
-	
-				return <DialogButton model={btnModel} />;
-			});
-
-			return	<div className={"modal-dialog"}>
-						<div className={"modal-content"}>
-							<div className={"modal-header"}>
-								<button type="button" className={"close"} data-dismiss="modal" aria-hidden="true">&times;</button>
-								<h4 className={"modal-title"}>{this.props.model.title}</h4>
-							</div>
-							<div className={"modal-body"}>
-								<p>{this.props.model.text}</p>
-								<p className={"text-warning"}><small>{this.props.model.extra}</small></p>
-							</div>
-							<div className={"modal-footer"}>
-								{buttons}
-							</div>
-						</div>
-					</div>;
-		}
-	});
-
+	var hasChanged = false;
 
 	/**
 	 * React : Movie List item Component
 	 */
-	MovieListItem = React.createClass({
+	var MovieListItem = React.createClass({
 		handleClick: function (ev) {
 			var options,
 				id = this.props.movie.get('Number');
@@ -237,7 +36,8 @@
 							dismis : true,
 							btnClass : 'warning',
 							callback : function (ev) {
-								_loadMovie(id);
+								//_loadMovie(id);
+								$.publish('CloudMovieCatalog.MovieListItemClicked', id);
 							}
 						},
 						{
@@ -248,7 +48,8 @@
 							callback : function (ev) {
 								loadedMovie.save(undefined, {
 									success : function (model, response, options) {
-										_loadMovie(id);										
+										//_loadMovie(id);
+										$.publish('CloudMovieCatalog.MovieListItemClicked', id);								
 									},
 									error : function (model, response, options) {
 										console.log('Error');
@@ -261,14 +62,15 @@
 				};
 
 				// Render the Modal
-				React.renderComponent(<ConfirmDialog model={options} />, $('#js-confirm-dialog').get(0));
+				React.render(<Dialogs.ConfirmDialog model={options} />, $('#js-confirm-dialog').get(0));
 
 				// Show modal
 				$("#js-confirm-dialog").modal('show');
 	
 			} else {
 				// Load movie into model
-				_loadMovie(id);
+				//_loadMovie(id);
+				$.publish('CloudMovieCatalog.MovieListItemClicked', id);
 			}
 
 		},
@@ -281,19 +83,10 @@
 	/**
 	 * React : Movie List Component
 	 */
-	MovieList = React.createClass({
-		/*handleClick: function (ev) {
-		//	console.log(arguments);
-		},*/
-		/*getInitialState: function () {
-			return { movies: [] };
-		},*/
-		/*componentDidMount: function() {
-			//window.addEventListener('click', this.handleClick);
-  		},*/
+	var MovieList = React.createClass({
 		render: function () {
-			var movies = this.props.model.map(function (movie) {
-				return <MovieListItem movie={movie} />;
+			var movies = this.props.model.map(function (movie, index) {
+				return <MovieListItem key={'movie-' + index} movie={movie} />;
 			});
 			return <tbody>{movies}</tbody>;
 		}
@@ -302,13 +95,15 @@
 	/**
 	 * React : Movie Media Fields Component (Media collapsable panel)
 	 */
-	MediaFields = React.createClass({
+	var MediaFields = React.createClass({
 		componentDidMount: function() {
 			this.props.model.on('change', function() {
 				this.forceUpdate();
 			}.bind(this));
 		},
-		handleChange : _handleFieldChange,
+		handleChange : function (ev) {
+			$.publish('CloudMovieCatalog.ValueChanged', ev.target);
+		},
 		render : function () {
 			var movie = this.props.model;
 			
@@ -344,13 +139,16 @@
 	/**
 	 * React : Movie Fields component (Movie collapsable panel)
 	 */
-	MovieFields = React.createClass({
+	var MovieFields = React.createClass({
 		componentDidMount: function() {
 			this.props.model.on('change', function() {
 				this.forceUpdate();
 			}.bind(this));
 		},
-		handleChange : _handleFieldChange,
+		handleChange : function (ev) {
+			//console.log
+			$.publish('CloudMovieCatalog.ValueChanged', ev.target);
+		},
 		render: function () {
 			var movie = this.props.model;
 			
@@ -455,13 +253,15 @@
 	/**
 	 * React : Movie Fields component (Movie collapsable panel)
 	 */
-	FileFields = React.createClass({
+	var FileFields = React.createClass({
 		componentDidMount: function() {
 			this.props.model.on('change', function() {
 				this.forceUpdate();
 			}.bind(this));
 		},
-		handleChange : _handleFieldChange,
+		handleChange : function (ev) {
+			$.publish('CloudMovieCatalog.ValueChanged', ev.target);
+		},
 		render: function () {
 			var movie = this.props.model;
 			
@@ -535,40 +335,11 @@
 					</div>;
 		}
 	});	
-	// Create a List of Movies 
-	moviesList = new MoviesListCollection();
 
-	// Create an empty movie model to be filled with API
-	loadedMovie = new Movie();
-	//loadedMovie.startTracking();
-
-	console.log(loadedMovie.get('Number'));
-
-	window.test = loadedMovie;
-
-	// Load list of movies via Ajax
-	moviesList.fetch({
-		success: function(collection, response) {
-			
-			// Render the list of movies via the React component
-			React.renderComponent(<MovieList  model={collection.models} />, $('#js-movies-list').get(0));
-
-			// Render the fields (empty) area Via React
-			React.renderComponent(<MediaFields model={loadedMovie}/>, $('#collapseMedia').get(0));
-			React.renderComponent(<MovieFields model={loadedMovie}/>, $('#collapseMovie').get(0));
-			React.renderComponent(<FileFields model={loadedMovie}/>, $('#collapseFile').get(0));
-		}
-	});
-
-
-	$(document).ready(function () {
-		// Bind clicks on the fields tabs
-		$('#js-movie-details-tabs a').click(function (ev) {
-			ev.preventDefault();
-			$(this).tab('show');
-		});
-
-		//$(document).on('hidden.bs.modal', _handleModalClose);
-	});
-
-}(jQuery));
+	return {
+		MovieList : MovieList,
+		MediaFields : MediaFields,
+		MovieFields : MovieFields,
+		FileFields : FileFields
+	}
+});
