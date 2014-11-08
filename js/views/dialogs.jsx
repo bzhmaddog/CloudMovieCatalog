@@ -8,9 +8,9 @@ define(['react'], function (React) {
 	 */
 	var DialogButton = React.createClass({
 		render : function () {
-			var btnClass = "btn btn-" + this.props.model.btnClass;
+			var btnClass = "btn btn-" + this.props.options.btnClass;
 
-			return <button onClick={this.props.model.handleClick} type="button" className={btnClass} data-dismiss="modal" data-action={this.props.model.action}>{this.props.model.text}</button>
+			return <button onClick={this.props.options.handleClick} type="button" className={btnClass} data-dismiss="modal" data-action={this.props.options.action}>{this.props.options.text}</button>
 		}
 	});
 
@@ -24,7 +24,7 @@ define(['react'], function (React) {
 		// handle click events on the buttons
 		handleClick : function (ev) {
 			var action = $(ev.target).data('action'),
-				buttons = this.props.model.buttons,
+				buttons = this.props.options.buttons,
 				l = buttons.length;
 
 			for (var i = 0 ; i < l ; i++) {
@@ -38,23 +38,23 @@ define(['react'], function (React) {
 			var _handleClick = this.handleClick,
 				buttons;
 
-			buttons = this.props.model.buttons.map(function (button) {
+			buttons = this.props.options.buttons.map(function (button, index) {
 				var btnModel = button;
 				btnModel.handleClick = _handleClick;
 				//delete btnModel.callback;
 	
-				return <DialogButton model={btnModel} />;
+				return <DialogButton key={'button-' + index} options={btnModel} />;
 			});
 
 			return	<div className={"modal-dialog"}>
 						<div className={"modal-content"}>
 							<div className={"modal-header"}>
 								<button type="button" className={"close"} data-dismiss="modal" aria-hidden="true">&times;</button>
-								<h4 className={"modal-title"}>{this.props.model.title}</h4>
+								<h4 className={"modal-title"}>{this.props.options.title}</h4>
 							</div>
 							<div className={"modal-body"}>
-								<p>{this.props.model.text}</p>
-								<p className={"text-warning"}><small>{this.props.model.extra}</small></p>
+								<p>{this.props.options.text}</p>
+								<p className={"text-warning"}><small>{this.props.options.extra}</small></p>
 							</div>
 							<div className={"modal-footer"}>
 								{buttons}

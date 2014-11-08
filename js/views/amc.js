@@ -1,81 +1,18 @@
 /** @jsx React.DOM */
 
-define(['jquery','react', 'js/views/dialogs.js', 'js/utils.js'], function ($, React, Dialogs, Utils) {
+define(['jquery','react', 'js/utils.js'], function ($, React, Utils) {
 
-	var hasChanged = false;
 
 	/**
 	 * React : Movie List item Component
 	 */
 	var MovieListItem = React.createClass({displayName: 'MovieListItem',
 		handleClick: function (ev) {
-			var options,
-				id = this.props.movie.get('Number');
-
+			var id = parseInt(this.props.movie.get('Number'), 10);
 			ev.preventDefault();
-
-			// Model was changed so ask user if he really want to load another movie
-			if (hasChanged) {
-
-				// Build options for the React component
-				options = {
-					title : 'Confirmation',
-					text : 'Do you want to save changes you made to this movie ?',
-					extra : 'If you do not save, your changes will be lost.',
-					buttons : [
-						{
-							action : 'cancel',
-							text : 'Cancel',
-							dismiss : true,
-							btnClass : 'default',
-							callback : function () {}
-						},
-						{
-							action : 'ignore',
-							text : 'Continue',
-							dismis : true,
-							btnClass : 'warning',
-							callback : function (ev) {
-								//_loadMovie(id);
-								$.publish('CloudMovieCatalog.MovieListItemClicked', id);
-							}
-						},
-						{
-							action : 'save',
-							text : 'Save & Continue',
-							dismiss : true,
-							btnClass : 'primary',
-							callback : function (ev) {
-								loadedMovie.save(undefined, {
-									success : function (model, response, options) {
-										//_loadMovie(id);
-										$.publish('CloudMovieCatalog.MovieListItemClicked', id);								
-									},
-									error : function (model, response, options) {
-										console.log('Error');
-									}
-								});
-
-							}
-						}
-					]
-				};
-
-				// Render the Modal
-				React.render(React.createElement(Dialogs.ConfirmDialog, {model: options}), $('#js-confirm-dialog').get(0));
-
-				// Show modal
-				$("#js-confirm-dialog").modal('show');
-	
-			} else {
-				// Load movie into model
-				//_loadMovie(id);
-				$.publish('CloudMovieCatalog.MovieListItemClicked', id);
-			}
-
+			$.publish('CloudMovieCatalog.MovieListItemClicked', id);
 		},
 		render: function () {
-			//console.log(this.props);
 			return React.createElement("tr", null, React.createElement("td", null, this.props.movie.get('Number')), React.createElement("td", {onClick: this.handleClick}, React.createElement("a", {href: "#", className: "block-link"}, this.props.movie.get('FormattedTitle'))));
 		},
 	});
@@ -85,7 +22,7 @@ define(['jquery','react', 'js/views/dialogs.js', 'js/utils.js'], function ($, Re
 	 */
 	var MovieList = React.createClass({displayName: 'MovieList',
 		render: function () {
-			var movies = this.props.model.map(function (movie, index) {
+			var movies = this.props.movies.map(function (movie, index) {
 				return React.createElement(MovieListItem, {key: 'movie-' + index, movie: movie});
 			});
 			return React.createElement("tbody", null, movies);
@@ -97,7 +34,7 @@ define(['jquery','react', 'js/views/dialogs.js', 'js/utils.js'], function ($, Re
 	 */
 	var MediaFields = React.createClass({displayName: 'MediaFields',
 		componentDidMount: function() {
-			this.props.model.on('change', function() {
+			this.props.movie.on('change', function() {
 				this.forceUpdate();
 			}.bind(this));
 		},
@@ -105,7 +42,7 @@ define(['jquery','react', 'js/views/dialogs.js', 'js/utils.js'], function ($, Re
 			$.publish('CloudMovieCatalog.ValueChanged', ev.target);
 		},
 		render : function () {
-			var movie = this.props.model;
+			var movie = this.props.movie;
 			
 			return  React.createElement("div", {className: "accordion-inner"}, 
 						React.createElement("label", {className: "field-label"}, 
@@ -141,16 +78,15 @@ define(['jquery','react', 'js/views/dialogs.js', 'js/utils.js'], function ($, Re
 	 */
 	var MovieFields = React.createClass({displayName: 'MovieFields',
 		componentDidMount: function() {
-			this.props.model.on('change', function() {
+			this.props.movie.on('change', function() {
 				this.forceUpdate();
 			}.bind(this));
 		},
 		handleChange : function (ev) {
-			//console.log
 			$.publish('CloudMovieCatalog.ValueChanged', ev.target);
 		},
 		render: function () {
-			var movie = this.props.model;
+			var movie = this.props.movie;
 			
 			return  React.createElement("div", {className: "accordion-inner"}, 
 						React.createElement("div", {className: "clearfix"}, 
@@ -255,7 +191,7 @@ define(['jquery','react', 'js/views/dialogs.js', 'js/utils.js'], function ($, Re
 	 */
 	var FileFields = React.createClass({displayName: 'FileFields',
 		componentDidMount: function() {
-			this.props.model.on('change', function() {
+			this.props.movie.on('change', function() {
 				this.forceUpdate();
 			}.bind(this));
 		},
@@ -263,7 +199,7 @@ define(['jquery','react', 'js/views/dialogs.js', 'js/utils.js'], function ($, Re
 			$.publish('CloudMovieCatalog.ValueChanged', ev.target);
 		},
 		render: function () {
-			var movie = this.props.model;
+			var movie = this.props.movie;
 			
 			return  React.createElement("div", {className: "accordion-inner"}, 
 						React.createElement("label", {className: "field-label"}, 
@@ -334,7 +270,7 @@ define(['jquery','react', 'js/views/dialogs.js', 'js/utils.js'], function ($, Re
 						)
 					);
 		}
-	});	
+	});
 
 	return {
 		MovieList : MovieList,
